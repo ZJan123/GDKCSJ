@@ -1,0 +1,14 @@
+{include file="header"}
+
+	<div class="container">
+		<a href="{:url('index')}">返回列表</a>
+		
+		<form action="{:url('save')}">
+			<!--新闻编号：<input type="text" name="id"><br>-->
+			新闻名称：<input type="text" name="news_name"><br>
+			新闻内容：<input type="text" name="news_content"><br>
+			新闻图片：<input type="file" name="news_thumb"><br>
+			<input type="submit" value="确认添加">
+		</form>
+	</div>
+{include file="footer"}

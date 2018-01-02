@@ -1,0 +1,20 @@
+{include file="header"}
+	<div class="container">
+		新闻列表
+		<a href="{:url('add')}">添加新闻</a>
+		<table>
+			<tr>
+				<th>编号</th>
+				<th>新闻名称</th>
+				<th>操作</th>
+			</tr>
+			{foreach $news_list as $info}
+		<tr>
+			<td>{$info.id}</td>
+			<td>{$info.news_name}</td>
+			<td></td>
+		</tr>
+		{/foreach}
+		</table>
+	</div>
+{include file="footer"}
