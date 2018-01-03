@@ -1,41 +1,65 @@
 <?php 
+
 namespace app\admin\controller;
-/**
-* 
-*/
+
 class News extends \think\Controller
 {
 	
 	public function index()
 	{
-		//查询，列表
-		$list = db('news')->select();
+		
 
-		//把一个变量赋值给模板
-		//第一个参数：模板变量，第二个参数：值
+		return $this->fetch();
+	}
+
+	public function leixin()
+	{
+		//获取数据库中表的数据
+		$leixing = input('cate_id');
+		//print_r($leixing);
+		if ($leixing=='0') {
+			$list=db('news')->select();
+			//print_r($list);
+		}else{
+			$list=db('news')->where('cate_id',input('cate_id'))->select();
+			//print_r($list);
+		}
+		//print_r($list);
 		$this->assign('news_list',$list);
+
 		return $this->fetch();
 	}
 
 	public function add()
 	{
-		//进入添加页面
+		//进入添加新闻的界面
 		return $this->fetch();
 	}
 
 	public function save()
 	{
-		//保存添加的信息
-		//助手函数input
-		//print_r(input());
-
-		//助手函数  实例化数据模型的db
-		db('news')->insert(input());
-		//success操作成功提醒的方法
-		//第一个参数：提醒的内容
-		//第二个参数：提醒后跳转的页面
-		$this->success('添加成功！','index');
+		//保存提交数据的行为
+		$add_date = input();
+		$file = request()->file('news_thumb');
+		if($file){
+            $file_info = $file->move('uploads');
+            if ($file_info) {
+        	    $add_date['news_thumb'] = $file_info->getSaveName();
+            }else{
+        	    echo $file->getError();
+            }
+            $add_date['create_time'] = time();
+        }
+		db('news')->insert($add_date);
+		$this->success('提交成功','leixin');
 	}
-}
 
+	public function delete()
+	{
+	    
+		db('news')->delete(input('id'));
+		$this->success('删除成功','leixin');
+	}
+
+}
  ?>

@@ -1,14 +1,43 @@
 {include file="header"}
-
-	<div class="container">
-		<a href="{:url('index')}">返回列表</a>
-		
-		<form action="{:url('save')}">
-			<!--新闻编号：<input type="text" name="id"><br>-->
-			新闻名称：<input type="text" name="news_name"><br>
-			新闻内容：<input type="text" name="news_content"><br>
-			新闻图片：<input type="file" name="news_thumb"><br>
-			<input type="submit" value="确认添加">
-		</form>
-	</div>
+    <div class="container">
+        <h3 align="center">添加新闻</h3>
+        <a href="{:url('index')}">
+        	<input type="submit" value="<-返回" class="btn btn-success">
+        </a>
+        <form action="{:url('save')}" enctype="multipart/form-data" method="post">
+            <div class="form-group">
+                <label>新闻标题</label>
+                <input type="text" name="news_name" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>新闻内容</label>
+                <textarea name="news_content" id="BAIDU_BJQ" cols="30" rows="10"></textarea>
+            </div>
+            <div class="form-group">
+                <label>新闻图片</label>
+                <input type="file" name="news_thumb">
+            </div>
+            <div class="form-group">
+            	<label>新闻类型</label>
+            	<select name="cate_id">
+            		<option value="1">国内新闻</option>
+            		<option value="2">国际新闻</option>
+            		<option value="3">娱乐新闻</option>
+            	</select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="提交信息" class="btn btn-success">
+            </div>
+        </form>
+    </div>
+    
+    <!-- 百度编辑器的配置文件 -->
+    <!-- 配置文件 -->
+    <script type="text/javascript" src="_PUBLIC_/static/lib/ueditor/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="_PUBLIC_/static/lib/ueditor/ueditor.all.js"></script>
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+    var ue = UE.getEditor('BAIDU_BJQ');
+    </script>
 {include file="footer"}

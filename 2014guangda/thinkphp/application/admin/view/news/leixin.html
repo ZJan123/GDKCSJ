@@ -28,9 +28,21 @@
 		        </a>
             </div>
         </div>
-        
-
-
-
+        <table class="table">
+            <tr>
+                <th>编号</th>
+                <th>新闻标题</th>
+                <th></th>
+                <th></th>
+            </tr>
+            {foreach $news_list as $info}
+            <tr>
+                <td>{$info.id}</td>
+                <td>{$info.news_name}</td>
+                <td><a href="{:url('index/news/preview',['id'=>$info.id])}" class="btn btn-success">预览</a></td>
+                <td><a href="{:url('delete',['id'=>$info.id])}" class="btn btn-danger">删除</a></td>
+            </tr>
+            {/foreach}
+        </table>
     </div>
 {include file="footer"}

@@ -1,10 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
-	面试的
-</body>
-</html>
+{include file="header"}
+
+<div class="row">
+	<div class="col-md-9">
+		<div class="borderBottom"><h6>当前位置: <a>主页</a> > <a>今日新闻</a> ></h6></div>
+		<ul>
+			{foreach $info_ms as $info}
+			<li class="aBox clearfix">
+				<div class="leftBox left">
+					<img src="http://www.bslxx.com/images/defaultpic.gif">	
+				</div>
+				<div class="rightBox">
+					<b>[<a>笔经面经</a>]</b> <a href="{:url('index/news/preview',['id'=>$info.id])}">{$info.news_name}</a>
+					<p><small>日期：2017-12-29 18:02:57 点击：192 好评：0</small></p>
+					<p ><small>嘉宾简介： 姓名：王肖 学校：大连理工大学（本科） 专业：软件工程 / 软件开发与测试（2013-2017） 工作：腾讯SNG 背景介绍： 找工作的日子： 去年三月份开始复习。 四月份腾讯春招...</small></p>
+				</div>
+			</li>
+			{/foreach}
+		</ul>
+	</div>
+
+	<div class="col-md-3">
+		<div class="lanmu">
+			<div class="borderBottom"><h6><b>栏目列表</b></h6></div>
+			<ul>
+				<li><a>笔经面经</a></li>
+			</ul>
+		</div>
+		<div class="tuijian">
+			<div class="borderBottom"><h6><b>推荐内容</b></h6></div>
+			<ul>
+				<li>
+					><a href="">微信小程序面试题，附答案</a>
+					<p><small>1、简单描述下 微信小程序的相关文件类型？ 答：微信小程序项...</small></p>
+				</li>
+			</ul>
+		</div>
+		<div class="redian">
+			<div class="borderBottom"><h6><b>热点内容</b></h6></div>	
+			<ul>
+				<li>·<a href="">微信小程序面试题，附答</a></li>
+			</ul>				
+		</div>
+		<div><a href=""><img src="http://www.bslxx.com/images/ask.png"></a></div>
+	</div>			
+</div>
+
+{include file="footer"}

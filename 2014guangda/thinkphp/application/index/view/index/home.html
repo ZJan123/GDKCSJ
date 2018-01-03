@@ -400,17 +400,18 @@
 				<h6><b>本月热点</b></h6>
 				<div>
 					<ul>
-						<li>纯CSS3实现的3D按钮，酷似牛奶般丝</li>
-						<li>纯CSS3实现的3D按钮，酷似牛奶般丝</li>
-						<li>纯CSS3实现的3D按钮，酷似牛奶般丝</li>
-						<li>纯CSS3实现的3D按钮，酷似牛奶般丝</li>
-						<li>纯CSS3实现的3D按钮，酷似牛奶般丝</li>
-						<li>纯CSS3实现的3D按钮，酷似牛奶般丝</li>
-						<li>纯CSS3实现的3D按钮，酷似牛奶般丝</li>
-						<li>纯CSS3实现的3D按钮，酷似牛奶般丝</li>
+						{foreach $info_rd as $info}
+						<li>
+							<a href="{:url('index/news/preview',['id'=>$info.id])}">{$info.news_name}
+							</a>
+						</li>
+						{/foreach}
 					</ul>
 				</div>
-				<img src="_PUBLIC_static/index/img/ask.png" alt="">
+				<div style="margin-top: 20px;">
+					<img src="_PUBLIC_static/index/img/ask.png" alt="">
+				</div>
+				
 			</div>
 		</div>
 	</div>
